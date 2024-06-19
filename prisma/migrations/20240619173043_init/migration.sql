@@ -1,14 +1,16 @@
 -- CreateTable
 CREATE TABLE "Product" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "psw" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "state" BOOLEAN NOT NULL DEFAULT true,
     "credits" INTEGER NOT NULL DEFAULT 0,
     "level" INTEGER NOT NULL DEFAULT 0,
-    "createdAd" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAd" DATETIME NOT NULL
+    "createdAd" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAd" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
