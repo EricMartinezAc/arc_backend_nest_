@@ -1,0 +1,1 @@
+nest g res modules/products & nest g res modules/users & nest g res modules/branches & nest g res modules/areas & nest g res modules/areas/fa & nest g res modules/areas/hrm & nest g res modules/areas/scm & nest g res modules/areas/im & nest g res modules/areas/pm & nest g res modules/areas/ps & nest g res modules/areas/sm & nest g res modules/zones & nest g res modules/resourses

@@ -1,0 +1,89 @@
+ide=ok
+node=ok
+dockerDesktop=ok
+git=ok
+git config --global user.name "Eric Martinez Acelas"
+git config --global user.email "proyectos.sieng@gmail.com"
+gitUrl = https://github.com/EricMartinezAc/arcontroller_api_nest.git
+NestjsCLI=ok
+npm install -g @nestjs/cli
+tablePlus=ok
+postman||insomnia=ok
+
+monolitico:
+ - modulos integrados
+ - bug en modulo x y redespliegue todo app
+ - incertidumbre de tiempos despliegue, test y efecto en otros modulos
+ - recargas en modulo x afecta todo app
+ - caso escalamiento, debe ser vertical, mas costoso. se recomienda horizontal con balance
+ - codigo crecimiento disparejo
+ * latencia instantanea
+ * apps pequeñas y antiguas fuertes sin problemas
+ * poco costo en uso un solo contenedor o maquina
+ * punto de entrada expuesto para asegurar
+microservicios:
+ * microservicios independientes, aislados, escalables, distribuidos
+ * fallas de modulos no genera caida de app
+ * con replicas en modulos escalamiento horizontal para solucionar rapido
+ * agnosis de lenguajes de comunicacion
+ + con gateway puerta entrada gestiona con microservicios
+ + microservicios independientes y bases de datos independientes y mas pequeñas
+ - se debe estructurar bien para evitar 
+ - alta latencia, aumenta con dependencias entre modulos
+ - cada microservicio debe ser responsable de su seguridad
+ - si un microservicio falla en seguridad puede afectar toda laapp o cuminicacion entre ellas
+ - rastrear ralentización de modulo complejo
+
+
+tipos transportes
+ - http/https restful
+ - grpc buffers google
+ - queues rabbitmq, apache kafka, amazon sqs
+ - streams apache kafka, apache pulsar, aws kinesis
+ - tcp/udp
+
+
+buenas practicas microservicios
+ - descomposicion adecuada
+ - responsable de unica tarea
+ - tamaño necesario
+ - independientes
+ - autonomia 
+ - comunicacion asincrona
+ - escalamiento y despliegue independientes
+ * PROBLEMAS DE INTEGRIDAD DIFERENCIAL
+ - tolerancia a error y recuperacion automatica
+ * evitar comunicacion entre ellos
+
+
+llenar datos entity el cual contiene los datos del objeto
+llenar datos dto lo cual espera al ejecutarse un servicio
+
+npm i class-validator class-transformer
+vlidator 
+contiene decoradores para validacion de datos
+
+agregue app.useGlobalPipes(new ValidationPipe()) casi un middleware para validar datos
+le pasamos el objeto whitelist y forbibnonwhithelisted para asegurar que se comparen las properties
+
+variables de entorno dentro config folder con easy snippet
+
+typeorm / sqlite / prisma
+npm install prisma --save-dev
+crear un cliente personalizadoa base de datos
+npx prisma init
+select db schema en prisma
+add url db en .env y hacerlo obligatorio
+
+migracion dbhace que db luzca tal como se define en schema
+alternativa muy util: si se tiene una base de datos creada se puede 
+ hacer creacion del shcema en base a ello
+npx prisma migrate dev --name init
+npm install @prisma/client
+extender modulo correspondiente en servicio hacia PrismaClient implementando OnModuleInit
+inicializar OnModuleInit(){this.$connect}
+cuando eso pase, arroja mensaje de conexion exitosa
+
+para almacenar en base de datos:
+el objeto es recibido por controller, enviado a service create y ahí usamos el 
+dto implementado en prisma client para crear el objeto
