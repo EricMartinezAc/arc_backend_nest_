@@ -15,9 +15,33 @@ model Product {
   state   Boolean @default(true)
   credits Int @default(0)
   level Int @default(0)
-
+  user  User[]
   createdAd DateTime @default(now())
   updatedAd DateTime @updatedAt
-
   @@index([state])
 }
+
+model Person {
+  id    Int      @default(autoincrement()) @id
+  name   String
+  lastname  String
+  email   String  @unique
+  contact   Int @unique
+  dateOfBirth DateTime
+  Nationality String
+  city  String
+  martialStatus String
+  kWords  String  @unique
+  user  User[]
+}
+
+model User {
+  id    Int     @default(autoincrement()) @id
+  name  String  @unique
+  psw   String
+  dataProduct Product? @relation(fields: [idProduct], references: [id])
+  idProduct Int
+  dataPerson  Person? @relation(fields: [idPreson], references: [id])
+  idPreson Int
+}
+
