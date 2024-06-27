@@ -1,4 +1,19 @@
 -- CreateTable
+CREATE TABLE "Product" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "psw" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "state" BOOLEAN NOT NULL DEFAULT true,
+    "credits" INTEGER NOT NULL DEFAULT 0,
+    "level" INTEGER NOT NULL DEFAULT 0,
+    "createdAd" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAd" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Person" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
@@ -10,6 +25,8 @@ CREATE TABLE "Person" (
     "city" TEXT NOT NULL,
     "martialStatus" TEXT NOT NULL,
     "kWords" TEXT NOT NULL,
+    "createdAd" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAd" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Person_pkey" PRIMARY KEY ("id")
 );
@@ -21,9 +38,20 @@ CREATE TABLE "User" (
     "psw" TEXT NOT NULL,
     "idProduct" INTEGER NOT NULL,
     "idPreson" INTEGER NOT NULL,
+    "createdAd" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAd" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Product_name_key" ON "Product"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Product_email_key" ON "Product"("email");
+
+-- CreateIndex
+CREATE INDEX "Product_state_idx" ON "Product"("state");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Person_email_key" ON "Person"("email");

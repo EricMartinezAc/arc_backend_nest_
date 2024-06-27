@@ -1,0 +1,1 @@
+export { PaginationDTO } from './dto/pagination.dto'
