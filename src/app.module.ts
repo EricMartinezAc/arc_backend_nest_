@@ -1,14 +1,12 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AreasModule } from './modules/app/areas/areas.module';
 import { ProductsModule } from './modules/auth/products/products.module';
-import { ResoursesModule } from './modules/app/resourses/resourses.module';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BranchModule } from './modules/app/branch/branch.module';
+import { ResourcesModule } from './modules/app/resources/resources.module';
 
 @Module({
   imports: [
@@ -29,10 +27,8 @@ import { BranchModule } from './modules/app/branch/branch.module';
     }),
     AreasModule,
     ProductsModule,
-    ResoursesModule,
     BranchModule,
+    ResourcesModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}

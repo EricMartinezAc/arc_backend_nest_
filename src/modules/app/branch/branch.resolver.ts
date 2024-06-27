@@ -7,6 +7,11 @@ import { CreateBranchInput } from './dto/create-branch.input';
 export class BranchResolver {
   constructor(private readonly branchService: BranchService) {}
 
+  @Query(() => String)
+  Greats(): string {
+    return 'Hello wordl';
+  }
+
   @Query(() => [Branch])
   branches() {
     return this.branchService.findAll();

@@ -9,6 +9,7 @@ type Branch {
 }
 
 type Query {
+  Greats: String!
   branches: [Branch!]!
   branch(id: Int!): Branch!
 }
