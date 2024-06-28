@@ -22,6 +22,12 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+> **Note**
+> This is a note
+
+> **Warning**
+> This is a warning
+
 [!NOTE]
 the endpoint are ordered for workflow:
 * POST ../products for create a product. it need: name(string required), psw(required),email(required),state(default true),level(default 0),credits(default 0),user. the id(Int) is autoincrement
