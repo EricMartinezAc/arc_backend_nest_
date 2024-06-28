@@ -29,6 +29,8 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
       paginationDTO_.page = 1;
       paginationDTO_.limit = 1000;
     }
+    if (paginationDTO_.limit === 1 && paginationDTO_.page <= 1)
+      paginationDTO_.page = 2;
     const { page, limit } = paginationDTO_;
     const totalProducts = await this.product.count({ where: { state: true } });
     const totalPages = Math.ceil(totalProducts / limit);

@@ -56,7 +56,7 @@ $ npm run start:prod auth
 > http://$host/products (POST): it need: name(string required), psw(required),email(required),state(default true),level(default 0),credits(default 0),user. the id(Int) is autoincrement.
 
 > **create a product**
-> http://$host/products (GET): is optional send parameter page(number) and limit (number) to pagination
+> http://$host/products (GET): is optional send parameter page(number) and limit (number) to pagination. for find all, you not send params. limit and page should not be less than 1.
 
 
 
