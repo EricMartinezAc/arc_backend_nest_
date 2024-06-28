@@ -53,10 +53,10 @@ $ npm run start:prod auth
 ## Endpoints
 
 > **create a product**
-> POST $host/products : it need: name(string required), psw(required),email(required),state(default true),level(default 0),credits(default 0),user. the id(Int) is autoincrement.
+> http://$host/products (POST): it need: name(string required), psw(required),email(required),state(default true),level(default 0),credits(default 0),user. the id(Int) is autoincrement.
 
 > **create a product**
-> GET $host/products : is optional send parameter page(number) and limit (number) to pagination
+> http://$host/products (GET): is optional send parameter page(number) and limit (number) to pagination
 
 
 

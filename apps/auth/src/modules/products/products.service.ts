@@ -39,6 +39,7 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
         where: { state: true },
       }),
       meta: {
+        limit,
         totalProducts,
         page,
         totalPages,
