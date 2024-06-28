@@ -22,17 +22,9 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-> **Note**
-> This is a note
 
-> **Endpoint**
-> This is a warning
-
-[!NOTE]
-the endpoint are ordered for workflow:
-* POST ../products for create a product. it need: name(string required), psw(required),email(required),state(default true),level(default 0),credits(default 0),user. the id(Int) is autoincrement
-* GET ../products for find all products. 
-
+> [!WARNING]
+> this app is beinh built.
 
 ## Description
 
@@ -46,18 +38,26 @@ $ npm install
 
 ## Running the app
 
+* For app auth
 ```bash
-# development
-$ npm run start
+# run server auth
+$ npm run start auth
 
 # watch mode
-$ npm run start:dev
+$ npm run start:dev auth
 
 # production mode
-$ npm run start:prod
+$ npm run start:prod auth
 ```
 
 ## Endpoints
+
+> **create a product**
+> POST $host/products : it need: name(string required), psw(required),email(required),state(default true),level(default 0),credits(default 0),user. the id(Int) is autoincrement.
+
+> **create a product**
+> GET $host/products : is optional send parameter page(number) and limit (number) to pagination
+
 
 
 

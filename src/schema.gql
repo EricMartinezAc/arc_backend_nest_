@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Branch {
+  id: Int!
+  name: String!
+  location: String!
+}
+
+type Query {
+  Greats: String!
+  branches: [Branch!]!
+  branch(id: Int!): Branch!
+}
+
+type Mutation {
+  createBranch(createBranchInput: CreateBranchInput!): Branch!
+}
+
+input CreateBranchInput {
+  name: String!
+  location: String!
+}
